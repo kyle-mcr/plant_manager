@@ -9,30 +9,50 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Home</title>
 </head>
+
 <body>
-    <h1>Welcome! Which plants need to be watered?</h1>
+    <h1>Welcome! Today is {{currentDate | date:'MM-dd-yyyy'}} </h1>
+
+    <h2>Please water the following plants today & edit when completed!</h2>
     <table class="table table-striped">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Name</th>
-                <th scope="col">Water Every</th>
-                <th scope="col">Watered Yet?</th>
-                <th scope="col">Actions</th>
+                <th scope="col">Watered At?</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let x of myobjects">
-                <td>{{x.name}}</td>
-                <td>{{x.type}}</td>
-                <td>{{x.watered}}</td>
-                <td>
-                    <button class="btn btn-success btn-sm" [routerLink]="['/show', x._id]">Show</button>
-                    <button class="btn btn-info btn-sm" [routerLink]="['/edit', x._id]">Edit</button>
-                    <button class="btn btn-danger btn-sm" (click)="deleteObject(x)">Delete</button>
-                </td>
+            <ng-container *ngIf="today == 1 || today == 3 || today == 5">
+                <tr *ngFor="let x of twos">
+                    <td>{{x.name}}</td>
+                    <td>{{x.water_after}}</td>
+                </tr>
+            </ng-container>
+            <ng-container *ngIf="today == 1 || today == 4">
+                <tr *ngFor="let x of threes">
+                    <td>{{x.name}}</td>
+                    <td>{{x.water_after}}</td>
+                </tr>
+            </ng-container>
+            <ng-container *ngIf="today == 1">
+                <tr *ngFor="let x of sevens">
+                    <td>{{x.name}}</td>
+                    <td>{{x.water_after}}</td>
+                </tr>
+            </ng-container>
+            <ng-container *ngIf="daydiff % 14 == 0">
+                    <tr *ngFor="let x of fourteens">
+                        <td>{{x.name}}</td>
+                        <td>{{x.water_after}}</td>
+                    </tr>
+                </ng-container>
         </tbody>
-        <a class="btn btn-success btn-sm" [routerLink]="['/new']">Add a plant</a>
     </table>
+    <input type="text" name="simDate" [(ngModel)]="simDate">
+    <button (click)="simulateDate()">Simulate StartDay</button>
+    <input type="text" name="currentSim" [(ngModel)]="currentSim">
+    <button (click)="simulateToday()">Simulate StartDay</button>
+    <a class="btn btn-success btn-sm" id="add" [routerLink]="['/new']">Add a plant</a>
 
     <div *ngIf='plant' class="plant">
         <td>Name: {{plant.name}}</td><br>
@@ -40,7 +60,7 @@
         <td>Completed?: {{plant.watered}}</td><br>
     </div>
 
-        
+
     <router-outlet></router-outlet>
     <!-- <form>
     <div *ngIf='edit.title' class="edit">
@@ -55,4 +75,4 @@
     <router-outlet></router-outlet>  -->
 </body>
 
-</html> 
+</html>

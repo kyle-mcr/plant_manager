@@ -11,6 +11,7 @@ import { ThrowStmt } from '@angular/compiler';
 export class EditComponent implements OnInit {
   myobj: any;
   id: any;
+  
   constructor(
     private http: HttpService,
     private router: Router,
@@ -18,7 +19,7 @@ export class EditComponent implements OnInit {
   ) { }
   ngOnInit() {
     this.getData();
-    this.myobj = { title: '', description: '', completed: false };
+    this.myobj = { name: '', type: '', watered: true };
   }
   getTask(id) {
       let observable2 = this.http.findOne(id);

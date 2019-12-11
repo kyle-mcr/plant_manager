@@ -15,7 +15,8 @@
     <h1 class="display-4">Plant Details:</h1>
     <div *ngIf='myobj' class="show">
         <td>Name: {{myobj.name}}</td><br>
-        <td>Water Every: {{myobj.type}}</td><br>
+        <td>Water Every: {{myobj.type}}</td><br> 
+        <td>Date Added: {{myobj.createdAt}}</td>
     </div>
     <a class="btn btn-warning btn-sm" [routerLink]="['/']">Go Back</a>
     <a class="btn btn-success btn-sm" href="https://www.bing.com/search?q={{myobj.name}}&form=QBLH&sp=-1&pq=fi&sc=8-2&qs=n&sk=&cvid=949861F461604B319A4CF9EB4F065653" target="_blank" role="button">Learn more</a>

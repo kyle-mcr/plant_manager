@@ -42,6 +42,19 @@
                         Frequency must be at least 1 character long.
                     </div>
                 </div>
+                <div class="form-check">
+                    <h2>Watered Yet Today?</h2>
+                        <input class="form-check-input" type="checkbox" value="false" id="true" [(ngModel)]="myobj.watered" >
+                        <label class="form-check-label" for="defaultCheck">
+                          True
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="true" id="false" [(ngModel)]="myobj.watered" >
+                        <label class="form-check-label" for="defaultCheck2">
+                          False
+                        </label>
+                      </div>
                 <button class="btn btn-success btn-sm" (click)="submitForm()" 
                     [disabled]="myobj.type.length<0" [disabled]="myobj.name.length<3">Submit</button>
                 <a class="btn btn-success btn-sm" [routerLink]="['/']">Go Back</a>
