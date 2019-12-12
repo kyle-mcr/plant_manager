@@ -49,9 +49,9 @@
         </tbody>
     </table>
     <input type="text" name="simDate" [(ngModel)]="simDate" placeholder="Ex. 12-02-2019">
-    <button class="btn btn-success btn-sm" (click)="simulateDate()">Simulate StartDay</button>
+    <button class="btn btn-success btn-sm" (click)="simulateDate()">Simulate Start Day</button>
     <input type="text" name="currentSim" [(ngModel)]="currentSim" placeholder="Ex. 12-16-2019">
-    <button class="btn btn-success btn-sm" (click)="simulateToday()">Simulate StartDay</button>
+    <button class="btn btn-success btn-sm" (click)="simulateToday()">Simulate Current Day</button>
 
     <div *ngIf='plant' class="plant">
         <td>Name: {{plant.name}}</td><br>
