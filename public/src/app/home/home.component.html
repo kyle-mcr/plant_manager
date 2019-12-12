@@ -13,12 +13,12 @@
 <body>
     <h1>Welcome! Today is {{currentDate | date:'MM-dd-yyyy'}} </h1>
 
-    <h2>Please water the following plants today & edit when completed!</h2>
+    <h2>Please water the following plants today!</h2>
     <table class="table table-striped">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Name</th>
-                <th scope="col">Watered At?</th>
+                <th scope="col">Water Frequency</th>
             </tr>
         </thead>
         <tbody>
@@ -48,11 +48,10 @@
                 </ng-container>
         </tbody>
     </table>
-    <input type="text" name="simDate" [(ngModel)]="simDate">
-    <button (click)="simulateDate()">Simulate StartDay</button>
-    <input type="text" name="currentSim" [(ngModel)]="currentSim">
-    <button (click)="simulateToday()">Simulate StartDay</button>
-    <a class="btn btn-success btn-sm" id="add" [routerLink]="['/new']">Add a plant</a>
+    <input type="text" name="simDate" [(ngModel)]="simDate" placeholder="Ex. 12-02-2019">
+    <button class="btn btn-success btn-sm" (click)="simulateDate()">Simulate StartDay</button>
+    <input type="text" name="currentSim" [(ngModel)]="currentSim" placeholder="Ex. 12-16-2019">
+    <button class="btn btn-success btn-sm" (click)="simulateToday()">Simulate StartDay</button>
 
     <div *ngIf='plant' class="plant">
         <td>Name: {{plant.name}}</td><br>

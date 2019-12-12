@@ -70,11 +70,11 @@ export class HomeComponent implements OnInit {
   }
 
   simulateDate(){
-    this.startDay = new Date(this.simDate)
+    this.startDay = new Date(this.simDate);
   }
 
   simulateToday() {
-    this.currentDate = new Date(this.currentSim)
+    this.currentDate = new Date(this.currentSim);
     this.today = this.currentDate.getDay();
     this.calculateDateDiff()
   }
